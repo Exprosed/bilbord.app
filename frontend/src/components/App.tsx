@@ -1,8 +1,9 @@
 import React from "react";
+import Clicker from "./Clicker";
 import logo from "./logo.svg";
 import "./App.scss";
 
-function App() {
+const App: React.FC = () => {
   return (
     <div className="App">
       <header className="App-header">
@@ -19,6 +20,7 @@ function App() {
           Learn React
         </a>
       </header>
+      <Clicker />
     </div>
   );
 }
