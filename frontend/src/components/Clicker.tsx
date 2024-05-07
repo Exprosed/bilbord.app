@@ -13,7 +13,7 @@ window.addEventListener("supertab.event", (event: any) => {
          });
       break;
       case "back_to_caller":
-         if (event.detail.accessStatus == 'access_granted') {
+         if (event.detail.accessStatus === 'access_granted') {
           console.log("Access granted");
          } else {
           console.log("Buyflow exited");
