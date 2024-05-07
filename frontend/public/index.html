@@ -5,10 +5,7 @@
     <link rel="icon" href="%PUBLIC_URL%/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="The billboard of the internet."
-    />
+    <meta name="description" content="The billboard of the internet." />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <!--
       manifest.json provides metadata used when your web app is installed on a
@@ -26,7 +23,30 @@
     -->
     <title>Bilbord.app</title>
     <!-- Supertab widget -->
-    <script defer="defer" src="https://onpage-widget.supertab.co/v2/widget.js"></script>
+    <script
+      defer="defer"
+      src="https://onpage-widget.supertab.co/v2/widget.js"
+    ></script>
+    <script>
+      window.addEventListener("supertab.event", (event) => {
+        switch (event.detail.type) {
+          case "ready":
+            console.log("COW ready");
+            window.widget = new event.detail.Widget({
+              clientId: "client.c84095e4-746e-4dd7-89df-afec1d8ff32d",
+              merchantName: "Bilbord.app",
+            });
+            break;
+          case "back_to_caller":
+            if (event.detail.accessStatus === "access_granted") {
+              console.log("Access granted");
+            } else {
+              console.log("Other back-to-caller event received");
+            }
+            break;
+        }
+      });
+    </script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>

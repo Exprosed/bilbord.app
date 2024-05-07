@@ -9,6 +9,6 @@ const App: React.FC = () => {
       <Clicker />
     </div>
   );
-}
+};
 
 export default App;
